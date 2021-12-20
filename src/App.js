@@ -30,17 +30,28 @@ function App() {
     console.log("hello");
   }
   return (
-  <main>
-    <section className='search'>
-      <form className='search-form'>
-        <input type='text' placeholder='search' className='form-input' />
-        <button className='submit' className="submit-btn" onClick={handleSubmit}>
-          <FaSearch/>
-          </button>
-      </form>
-    </section>
-  </main>
-  )
+		<main>
+			<section className='search'>
+				<form className='search-form'>
+					<input type='text' placeholder='search' className='form-input' />
+					<button
+						className='submit'
+						className='submit-btn'
+						onClick={handleSubmit}>
+						<FaSearch />
+					</button>
+				</form>
+			</section>
+			<section className='photos'>
+				<div className='photos-center'>
+					{photos.map((photo) => {
+						return <Photo key={image.id} {...image} />;
+					})}
+				</div>
+        {loading && <h2 className='loading'>loading...</h2>}
+			</section>
+		</main>
+	);
 }
 
 export default App
